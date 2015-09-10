@@ -1,0 +1,8 @@
+[cloudera@quickstart ~]$ hdfs dfs -ls output
+Found 2 items
+-rw-r--r--   1 cloudera cloudera          0 2015-09-07 22:07 output/_SUCCESS
+-rw-r--r--   1 cloudera cloudera         17 2015-09-07 22:07 output/part-00000
+[cloudera@quickstart ~]$ hdfs dfs -cat output/part-00000
+1949	111
+1950	22
+[cloudera@quickstart ~]$
