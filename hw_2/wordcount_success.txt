@@ -1,0 +1,79 @@
+[cloudera@quickstart hw_2]$ hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -input wordcount_data.txt -file wordcount_mapper.py -mapper "wordcount_mapper.py Java Chicago Dec hackathon" -file wordcount_reducer.py -reducer wordcount_reducer.py -output output_hw2
+15/09/12 13:43:02 WARN streaming.StreamJob: -file option is deprecated, please use generic option -files instead.
+packageJobJar: [wordcount_mapper.py, wordcount_reducer.py] [/usr/jars/hadoop-streaming-2.6.0-cdh5.4.2.jar] /tmp/streamjob5815177161876973612.jar tmpDir=null
+15/09/12 13:43:05 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+15/09/12 13:43:05 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+15/09/12 13:43:06 INFO mapred.FileInputFormat: Total input paths to process : 1
+15/09/12 13:43:07 INFO mapreduce.JobSubmitter: number of splits:2
+15/09/12 13:43:07 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1441928145072_0002
+15/09/12 13:43:07 INFO impl.YarnClientImpl: Submitted application application_1441928145072_0002
+15/09/12 13:43:07 INFO mapreduce.Job: The url to track the job: http://quickstart.cloudera:8088/proxy/application_1441928145072_0002/
+15/09/12 13:43:07 INFO mapreduce.Job: Running job: job_1441928145072_0002
+15/09/12 13:43:18 INFO mapreduce.Job: Job job_1441928145072_0002 running in uber mode : false
+15/09/12 13:43:18 INFO mapreduce.Job:  map 0% reduce 0%
+15/09/12 13:43:32 INFO mapreduce.Job:  map 50% reduce 0%
+15/09/12 13:43:33 INFO mapreduce.Job:  map 100% reduce 0%
+15/09/12 13:43:43 INFO mapreduce.Job:  map 100% reduce 100%
+15/09/12 13:43:43 INFO mapreduce.Job: Job job_1441928145072_0002 completed successfully
+15/09/12 13:43:43 INFO mapreduce.Job: Counters: 49
+	File System Counters
+		FILE: Number of bytes read=135
+		FILE: Number of bytes written=342137
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=664
+		HDFS: Number of bytes written=35
+		HDFS: Number of read operations=9
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Launched map tasks=2
+		Launched reduce tasks=1
+		Data-local map tasks=2
+		Total time spent by all maps in occupied slots (ms)=24667
+		Total time spent by all reduces in occupied slots (ms)=7168
+		Total time spent by all map tasks (ms)=24667
+		Total time spent by all reduce tasks (ms)=7168
+		Total vcore-seconds taken by all map tasks=24667
+		Total vcore-seconds taken by all reduce tasks=7168
+		Total megabyte-seconds taken by all map tasks=25259008
+		Total megabyte-seconds taken by all reduce tasks=7340032
+	Map-Reduce Framework
+		Map input records=3
+		Map output records=12
+		Map output bytes=105
+		Map output materialized bytes=141
+		Input split bytes=232
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=4
+		Reduce shuffle bytes=141
+		Reduce input records=12
+		Reduce output records=4
+		Spilled Records=24
+		Shuffled Maps =2
+		Failed Shuffles=0
+		Merged Map outputs=2
+		GC time elapsed (ms)=331
+		CPU time spent (ms)=1870
+		Physical memory (bytes) snapshot=570781696
+		Virtual memory (bytes) snapshot=4528553984
+		Total committed heap usage (bytes)=391979008
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=432
+	File Output Format Counters 
+		Bytes Written=35
+15/09/12 13:43:43 INFO streaming.StreamJob: Output directory: output_hw2
+[cloudera@quickstart hw_2]$ hdfs dfs -cat output_hw2/part-00000
+Chicago	1
+Dec	2
+Java	0
+hackathon	2
